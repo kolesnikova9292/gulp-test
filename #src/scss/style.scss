@@ -20,22 +20,24 @@ h6,
   margin-bottom: 0;
 }
 
-html:not([data-scroll="0"]) {
-  .div_for_upper_menu {
-    position: relative;
-    top: 100vh;
-  }
+@media only screen and (min-width: 400px) {
+  html:not([data-scroll="0"]) {
+    .div_for_upper_menu {
+      position: relative;
+      top: 100vh;
+    }
 
-  .upper_menu__item__link {
-    color: #cecece !important;
-  }
+    .upper_menu__item__link {
+      color: #cecece !important;
+    }
 
-  .div_for_upper_menu {
-    border-bottom: 1px solid #cecece;
-  }
+    .div_for_upper_menu {
+      border-bottom: 1px solid #cecece;
+    }
 
-  .first_section {
-    margin-bottom: 153px;
+    .first_section {
+      margin-bottom: 153px;
+    }
   }
 }
 
