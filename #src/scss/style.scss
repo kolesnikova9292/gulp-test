@@ -66,6 +66,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 }
 .upper_menu__item {
   text-transform: uppercase;
@@ -177,11 +178,20 @@ li {
   font-family: "Open Sans", Arial, sans-serif;
   padding-bottom: 74px;
   letter-spacing: 20px;
+  white-space: nowrap;
 }
 
 .foto {
   flex: 1;
-  margin-right: 26px;
+  min-height: 474px;
+  overflow: hidden;
+  //margin-right: 48px;
+  background: url(/img/foto.png) center top no-repeat;
+  background-size: auto 100%;
+  position: relative;
+  //margin-right: 26px;
+  //background: url(/img/foto.png) center center / cover no-repeat;
+  // display: inline-block;
 }
 
 .biography {
@@ -240,16 +250,23 @@ li {
   .upper_menu__item {
     margin-right: 28px;
   }
+  .biography {
+    margin: 0 104px 0 60px;
+  }
+
+  .scroll_down_bottom_of_second_section {
+    min-width: 200px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .foto {
     position: relative;
-    left: -250px;
+    //left: -20px;
   }
 
   .biography {
-    margin: 0 104px 0 28px;
+    margin: 0 0 0 28px;
   }
 
   .header_of_biography {
@@ -262,6 +279,7 @@ li {
 
   .first_section {
     height: 267px;
+    min-width: 400px;
   }
 
   .about_me {
@@ -286,6 +304,7 @@ li {
   position: relative;
   top: 30px;
   left: 30px;
+  max-width: 330px;
 }
 
 #menuToggle a {

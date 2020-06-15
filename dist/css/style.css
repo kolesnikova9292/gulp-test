@@ -53,6 +53,7 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  white-space: nowrap;
 }
 
 .upper_menu__item {
@@ -199,13 +200,18 @@ li {
   font-family: "Open Sans", Arial, sans-serif;
   padding-bottom: 74px;
   letter-spacing: 20px;
+  white-space: nowrap;
 }
 
 .foto {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-right: 26px;
+  min-height: 474px;
+  overflow: hidden;
+  background: url(/img/foto.png) center top no-repeat;
+  background-size: auto 100%;
+  position: relative;
 }
 
 .biography {
@@ -254,6 +260,7 @@ li {
   position: relative;
   top: 30px;
   left: 30px;
+  max-width: 330px;
 }
 
 #menuToggle a {
@@ -406,16 +413,23 @@ li {
   .upper_menu__item {
     margin-right: 28px;
   }
+
+  .biography {
+    margin: 0 104px 0 60px;
+  }
+
+  .scroll_down_bottom_of_second_section {
+    min-width: 200px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .foto {
     position: relative;
-    left: -250px;
   }
 
   .biography {
-    margin: 0 104px 0 28px;
+    margin: 0 0 0 28px;
   }
 
   .header_of_biography {
@@ -428,6 +442,7 @@ li {
 
   .first_section {
     height: 267px;
+    min-width: 400px;
   }
 
   .about_me {
@@ -448,3 +463,5 @@ li {
 }
 
 .webp .first_section { background: url(/img/backgr.webp) center center/cover no-repeat; }
+
+.webp .foto { background: url(/img/foto.webp) center top no-repeat; }
