@@ -8,19 +8,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0;
 }
 
-html:not([data-scroll='0']) .div_for_upper_menu {
-  //position: fixed;100
-  //background-color: blue;
-}
-
 html:not([data-scroll='0']) {
 	
 	.div_for_upper_menu {
     position: relative;
     top: 100vh;
-    
-		//position: fixed;
-		//top: 0;
   }
   
   .upper_menu__item__link{
@@ -34,8 +26,6 @@ html:not([data-scroll='0']) {
   .first_section{
     margin-bottom: 153px;
   }
-  
-	
 }
 
 ul{
