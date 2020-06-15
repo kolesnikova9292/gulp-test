@@ -185,13 +185,9 @@ li {
   flex: 1;
   min-height: 474px;
   overflow: hidden;
-  //margin-right: 48px;
   background: url(/img/foto.png) center top no-repeat;
   background-size: auto 100%;
   position: relative;
-  //margin-right: 26px;
-  //background: url(/img/foto.png) center center / cover no-repeat;
-  // display: inline-block;
 }
 
 .biography {
@@ -262,7 +258,6 @@ li {
 @media only screen and (max-width: 400px) {
   .foto {
     position: relative;
-    //left: -20px;
   }
 
   .biography {
