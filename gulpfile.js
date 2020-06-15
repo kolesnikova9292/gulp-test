@@ -40,7 +40,8 @@ let { src, dest } = require("gulp"),
   imagemin = require("gulp-imagemin"),
   webp = require("gulp-webp"),
   webphtml = require("gulp-webp-html"),
-  webpcss = require("gulp-webpcss");
+  webpcss = require("gulp-webpcss"),
+  modify_urls = require("gulp-modify-css-urls");
 
 function browserSync(params) {
   browsersync.init({
@@ -114,6 +115,13 @@ function css() {
         cascade: true,
       })
     )
+    /* .pipe(modify_urls({
+       modify(url, filePath) {
+         return `${url}`;
+       },
+       prepend: path.build,
+       //append: '?cache-buster'
+     }))*/
     .pipe(webpcss())
     .pipe(dest(path.build.css))
     .pipe(clean_css())
@@ -126,6 +134,30 @@ function css() {
     .pipe(browsersync.stream());
 }
 
+function cssUrls() {
+  return src(path.src.css)
+    .pipe(modify_urls({
+      modify(url, filePath) {
+        return `${url}`;
+      },
+      prepend: path.build,
+      //append: '?cache-buster'
+    }))
+    .pipe(gulp.dest('./'))
+}
+
+/*gulp.task('modifyUrls', () =>
+  gulp.src('style.css')
+    .pipe(modifyCssUrls({
+      modify(url, filePath) {
+        return `app/${url}`;
+      },
+      prepend: 'https://fancycdn.com/',
+      append: '?cache-buster'
+    }))
+    .pipe(gulp.dest('./'))
+);*/
+
 function watchFiles(params) {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], css);
@@ -137,8 +169,14 @@ function clean(params) {
   return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images));
-let watch = gulp.parallel(build, watchFiles, browserSync);
+//let build = gulp.series(clean, gulp.parallel(js, css, html, images));
+//let watch = gulp.parallel(build, watchFiles, browserSync);
+// define complex tasks
+//const build = gulp.series(clean, gulp.parallel(css, images, js));
+//const watch = gulp.parallel(watchFiles, browserSync);
+const js1 = gulp.series(js);
+const build = gulp.series(clean, gulp.parallel(js, css, images, html));
+const watch = gulp.parallel(watchFiles, browserSync);
 
 exports.images = images;
 exports.js = js;
